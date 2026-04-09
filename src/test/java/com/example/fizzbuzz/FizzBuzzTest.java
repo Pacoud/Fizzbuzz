@@ -48,6 +48,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * 🔵 REFACTOR — Rien à refactorer, le code est déjà minimal.
  * ============================================================
+ *
+ * ============================================================
+ * CYCLE 3 — RED / GREEN / REFACTOR
+ * ============================================================
+ *
+ * 🔴 RED — Test ajouté (échouait avec l'erreur suivante) :
+ *
+ *   should_return_Buzz_when_given_5
+ *   AssertionFailedError: expected: <Buzz> but was: <5>
+ *   → Tests run: 3, Failures: 1 — BUILD FAILURE
+ *
+ *   Raison : aucune condition sur le modulo 5 dans convert().
+ *
+ * 🟢 GREEN — Correction minimale :
+ *
+ *   Ajout dans FizzBuzz.java :
+ *     if (number % 5 == 0) return "Buzz";
+ *   → Tests run: 3, Failures: 0 — BUILD SUCCESS
+ *
+ * 🔵 REFACTOR — Rien à refactorer, le code est déjà minimal.
+ * ============================================================
  */
 class FizzBuzzTest {
 
@@ -61,5 +82,11 @@ class FizzBuzzTest {
     void should_return_Fizz_when_given_3() {
         FizzBuzz fizzBuzz = new FizzBuzz();
         assertEquals("Fizz", fizzBuzz.convert(3));
+    }
+
+    @Test
+    void should_return_Buzz_when_given_5() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        assertEquals("Buzz", fizzBuzz.convert(5));
     }
 }
